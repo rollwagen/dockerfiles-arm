@@ -16,7 +16,7 @@ RUN git clone https://github.com/magnumripper/JohnTheRipper.git && cd JohnTheRip
         && sed -i -E 's/(\-lz)/\-Wl\,\-Bstatic\ \1\ \-Wl\,\-Bdynamic/' Makefile  \
         && make -s clean && make -sj4
 
-FROM gcr.io/distroless/cc
+FROM gcr.io/distroless/cc-debian10
 COPY --from=build-env /JohnTheRipper/run /app
 WORKDIR /app
 ENTRYPOINT ["./john"]
