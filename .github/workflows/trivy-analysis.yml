@@ -19,7 +19,7 @@ jobs:
 
       - name: Build an image from Dockerfile
         run: |
-          docker build -t rollwagen/john-arm:${{ github.sha }} .
+          docker build -t rollwagen/john-arm:${{ github.sha }} john/
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
