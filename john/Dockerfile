@@ -1,7 +1,7 @@
 FROM gcc:5.4 AS build-env
-LABEL maintainer "rollwagen <rollwagen@gmail.com>"
+LABEL maintainer="rollwagen <rollwagen@gmail.com>"
 
-RUN apt-get install git
+RUN apt-get -y install --no-install-recommends git
 
 RUN git clone --depth 1 --branch OpenSSL_1_1_1-stable https://github.com/openssl/openssl.git \
         && cd openssl && ./config zlib '-Wl,-rpath,$(LIBRPATH)' \
